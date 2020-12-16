@@ -42,7 +42,7 @@ namespace PELICULAS
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            var defaultCulture = new CultureInfo("es-es");
+            var defaultCulture = new CultureInfo("es-ES");
             var localizationOptions = new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture(defaultCulture),

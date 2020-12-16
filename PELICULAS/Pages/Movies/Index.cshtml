@@ -8,6 +8,19 @@
 
 <h1>Películas</h1>
 
+<form>
+    <p>
+        Título: <input type="text" asp-for="filtro" /><br />
+        Género: <select asp-for="sel_genero" asp-items="Model.lst_generos">
+            <option value="">Todos</option>
+        </select> <br />
+
+
+        <br /><input type="submit" value="Filtrar" />
+    </p>
+
+</form>
+
 <p>
     <a asp-page="Create">Añadir película</a>
 </p>
