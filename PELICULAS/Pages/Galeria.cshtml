@@ -1,0 +1,67 @@
+﻿@page
+@model PELICULAS.Pages.Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Galeria";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Galeria</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].Genre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].Price)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Movie)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.ID">Editar</a> |
+                            <a asp-page="./Details" asp-route-id="@item.ID">Detalles</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.ID">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
